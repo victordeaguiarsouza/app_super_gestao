@@ -9,6 +9,7 @@ class ContatoController extends Controller
 
     public function execute()
     {
+        //var_dump($_POST);
         return view('site.contato');
     }
 
