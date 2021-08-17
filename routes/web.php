@@ -7,7 +7,7 @@ use \App\Http\Controllers\{ContatoController, TesteController, SobreNosControlle
 Route::get('/'                , [PrincipalController::class, 'execute'])->name('site.index');
 Route::get('/sobre-nos'       , [SobreNosController::class, 'execute'])->name('site.sobrenos');
 Route::get('/contato'         , [ContatoController::class, 'execute'])->name('site.contato');
-Route::post('/contato'        , [ContatoController::class, 'execute'])->name('site.contato');
+Route::post('/contato'        , [ContatoController::class, 'save'])->name('site.contato');
 Route::get('/teste/{p1}/{p2}' , [TesteController::class, 'execute'])->name('site.teste');
 
 Route::prefix('/app')->group(function(){
