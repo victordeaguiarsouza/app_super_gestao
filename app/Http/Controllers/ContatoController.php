@@ -19,17 +19,17 @@ class ContatoController extends Controller
     public function save(Request $request)
     {
         $request->validate([
-            'nome'     => 'required|min:3|max:50',
-            'telefone' => 'required',
-            'email'    => 'required',
-            'motivo'   => 'required',
-            'mensagem' => 'required|max:2000',
+            'nome'       => 'required|min:3|max:50|unique:site_contatos',
+            'telefone'   => 'required',
+            'email'      => 'email',
+            'motivos_id' => 'required',
+            'mensagem'   => 'required|max:2000',
         ]);
 
-        /* $contato = new SiteContato();
 
-        $contato->fill($request->all());
-        $contato->save(); */
+        SiteContato::create($request->all());
+
+        return redirect()->route('site.index');
     }
 
 }

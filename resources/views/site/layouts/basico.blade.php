@@ -9,6 +9,16 @@
 
     <body>
         
+        @if($errors->any())    
+            <div style="top: 0px; width:100%; background:red;">
+                
+                @foreach ($errors->all() as $e)
+                    * {{ $e }}</br>
+                @endforeach
+
+            </div>
+        @endif
+
         @include('site.layouts._partials.topo')
 
         @yield('conteudo')
