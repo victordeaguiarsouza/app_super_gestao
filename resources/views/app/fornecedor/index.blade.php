@@ -1,37 +1,39 @@
-<h3>Fornecedor</h3>
+@extends('app.layouts.basico')
 
-@php
-    /*
-    if(isset($variavel)){}
-    */
-@endphp
+@section('titulo', 'Fornecedor')
+    
+@section('conteudo')
+    
+    <div class="conteudo-pagina">
 
-@isset($fornecedores)
+        <div class="titulo-pagina-2">
+            <p>Fornecedor</p>
+        </div>
 
-    @forelse ($fornecedores as $f)
+        <div class="menu">
+            <ul>
+                <li> <a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
+                <li> <a href="{{ route('app.fornecedor') }}">Consulta</a></li>
+            </ul>
+        </div>
 
-        {{-- @dd($loop) --}}
-        <br>
-        Fornecedor: {{$f['nome']}} {{$f['ativo']}}
-        <br>
-        Ativo: {{$f['ativo']}}
-        <br>
-        CNPJ: {{ $f['cnpj']?? 'Dado não preenchido.' }}
-        <br>
-        Telefone: {{$f['ddd']?? ''}} {{$f['tel']?? '' }}
-        <br>
-        @if ($loop->first)
-            Primeira iteração
-        @endif
-        @if ($loop->last)
-            Última iteração
-            <br>
-            Total de registros: {{$loop->count}}
-        @endif
-        <hr>
-    @empty
-        Nenhum fornecedor foi encontrado.
-    @endforelse
+        <div class="informacao-pagina">
+        
+            <div style="width: 30%; margin-left:auto; margin-right: auto;">
+                
+                <form action="{{ route('app.fornecedor.listar')}}" method="post">
+                    @csrf
+                    <input type="text" name="nome"  id="nome"  placeholder="Nome"   class="borda-preta">
+                    <input type="text" name="site"  id="site"  placeholder="Site"   class="borda-preta">
+                    <input type="text" name="uf"    id="uf"    placeholder="UF"     class="borda-preta">
+                    <input type="text" name="email" id="email" placeholder="E-mail" class="borda-preta">
+                    <button type="submit">Pesquisar</button>
+                </form>
 
-@endisset
+            </div>
+        
+        </div>
 
+    </div>
+
+@endsection

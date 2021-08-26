@@ -18,14 +18,19 @@ class ContatoController extends Controller
 
     public function save(Request $request)
     {
-        $request->validate([
-            'nome'       => 'required|min:3|max:50|unique:site_contatos',
-            'telefone'   => 'required',
-            'email'      => 'email',
-            'motivos_id' => 'required',
-            'mensagem'   => 'required|max:2000',
-        ]);
-
+        $request->validate(
+            [
+                'nome'       => 'required|min:3|max:50|unique:site_contatos',
+                'telefone'   => 'required',
+                'email'      => 'email',
+                'motivos_id' => 'required',
+                'mensagem'   => 'required|max:2000',
+            ],
+            [
+                'required' => 'O campo :attribute é obrigatório.',
+                'email'    => 'Email inválido.'
+            ]
+        );
 
         SiteContato::create($request->all());
 
