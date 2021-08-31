@@ -1,3 +1,6 @@
+App feito somente para fins de estudos básicos sobre o Laravel. 
+Seguindo a primeira parte do curso: https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/  onde a finalidade é somente conhecer os recursos do Laravel e do Eloquent ORM sem se preocupar com interface e a implementação de boas práticas(o que me incomodou bastante...hehehhe).
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
